@@ -1,0 +1,28 @@
+package com.example.warehoserestdata.entity;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
+import java.sql.Timestamp;
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
+@Entity
+public class Output {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+    private Timestamp date;
+    private String facturelNumber;
+    private String code;
+    @ManyToOne
+    private Client client;
+    @ManyToOne
+    private Warehouse wareHouse;
+    @ManyToOne
+    private Currency currency;
+
+}
